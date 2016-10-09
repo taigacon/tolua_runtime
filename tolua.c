@@ -819,7 +819,8 @@ static int class_newindex_event(lua_State *L)
 	}
 
     lua_settop(L, 3); 
-    return luaL_error(L, "field or property %s does not exist", lua_tostring(L, 2));      
+    lua_rawset(L, 1);
+    return 0;     
 }
 
 static int enum_index_event (lua_State *L)
